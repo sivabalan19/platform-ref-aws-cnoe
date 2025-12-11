@@ -1,0 +1,28 @@
+apiVersion: aws.platformref.upbound.io/v1alpha1
+kind: XCNOE
+metadata:
+  name: platform-ref-aws-cnoe
+  namespace: default
+spec:
+  compositeDeletePolicy: Foreground
+  parameters:
+    id: platform-ref-aws-cnoe
+    region: eu-west-1
+    version: "1.34"
+    deletionPolicy: Delete
+    # Important: Please read the README regarding the need for a route53zoneId.
+    # The route53zoneId is crucial for making the CNOE platform accessible via a web browser.
+    # Replace the placeholder below with your Route53 Zone ID.
+    # route53zoneId: Z0000000000000000000
+    route53zoneId: Z0115025YFQ7ZQF6BJ6N
+    iam:
+      roleArn: arn:aws:iam::609897127049:role/AWSReservedSSO_AdministratorAccess_d703c73ed340fde7
+    nodes:
+      count: 8
+      instanceType: t3.small
+    gitops:
+      git:
+        url: https://github.com/upbound/configuration-gitops-argocd.git
+        path: gitops
+        ref:
+          name: HEAD
