@@ -1,12 +1,12 @@
 import models.io.upbound.platformref.aws.v1alpha1 as platformrefawsv1alpha1
 
 # Read from options - must be provided via -D flags or environment
-_route53ZoneId = option("route53ZoneId") if option("route53ZoneId") else "ZXXXXXXXXXXXXX"
-_iamRoleArn = option("iamRoleArn") if option("iamRoleArn") else "arn:aws:iam::123456789012:role/YourE2ETestRole"
+_route53ZoneId = option("ROUTE53_ZONE_ID") if option("ROUTE53_ZONE_ID") else "ZXXXXXXXXXXXXX"
+_iamRoleArn = option("IAM_ROLE_ARN") if option("IAM_ROLE_ARN") else "arn:aws:iam::123456789012:role/YourE2ETestRole"
 
 _xcnoe = platformrefawsv1alpha1.XCNOE {
     metadata = {
-        name = "platform-ref-aws-cnoe"
+        name = "platform-ref-aws-cnoe-e2e"
         labels = {
             "crossplane.io/composite" = "platform-ref-aws-cnoe"
         }

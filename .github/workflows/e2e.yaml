@@ -52,7 +52,7 @@ jobs:
       - name: Run e2e tests
         run: |
           if [ -n "$ROUTE53_ZONE_ID" ] && [ -n "$IAM_ROLE_ARN" ]; then
-            up test run tests/* --e2e -D route53ZoneId="$ROUTE53_ZONE_ID" -D iamRoleArn="$IAM_ROLE_ARN"
+            up test run tests/* --e2e -D route53ZoneId=${{ env.ROUTE53_ZONE_ID }} -D iamRoleArn=${{ env.IAM_ROLE_ARN }}
           else
             echo "Warning: Using default values. Set E2E_ROUTE53_ZONE_ID and E2E_IAM_ROLE_ARN secrets for custom values."
             up test run tests/* --e2e
