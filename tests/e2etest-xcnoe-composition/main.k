@@ -27,7 +27,7 @@ _items = [
                     }
                 }
             ]
-            skipDelete: False
+            skipDelete: True # Skip deletion to retain created resources for inspection
             timeoutSeconds: 4500
         }
     }

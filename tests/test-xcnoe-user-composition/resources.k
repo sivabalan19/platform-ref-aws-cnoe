@@ -1,12 +1,4 @@
 # Composition Resources for AWS CNOE Composition Test
-import models.io.upbound.aws.iam.v1beta1 as iamv1beta1
-import models.io.upbound.platform.aws.v1alpha1 as platformawsv1alpha1
-import models.io.upbound.platform.gitops.v1alpha1 as gitopsv1alpha1
-import models.io.upbound.platform.observe.v1alpha1 as platformobservev1alpha1
-import models.io.upbound.aws.route53.v1beta1 as route53v1beta1
-import models.io.crossplane.helm.v1beta1 as helmv1beta1
-import json
-import conditions
 
 # USer created using XCNOE Composition
 _argocd_admin_user = {
