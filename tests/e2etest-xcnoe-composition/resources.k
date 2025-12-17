@@ -6,7 +6,7 @@ _iamRoleArn = option("IAM_ROLE_ARN") if option("IAM_ROLE_ARN") else "arn:aws:iam
 
 _xcnoe = platformrefawsv1alpha1.XCNOE {
     metadata = {
-        name = "platform-ref-aws-cnoe-e2e"
+        name = "platform-ref-aws-cnoe"
         labels = {
             "crossplane.io/composite" = "platform-ref-aws-cnoe"
         }
