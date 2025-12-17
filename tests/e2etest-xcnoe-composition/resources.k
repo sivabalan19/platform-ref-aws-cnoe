@@ -1,8 +1,9 @@
 import models.io.upbound.platformref.aws.v1alpha1 as platformrefawsv1alpha1
+import file
 
-# Read from options - must be provided via -D flags or environment
-_route53ZoneId = option("ROUTE53_ZONE_ID") if option("ROUTE53_ZONE_ID") else "ZXXXXXXXXXXXXX"
-_iamRoleArn = option("IAM_ROLE_ARN") if option("IAM_ROLE_ARN") else "arn:aws:iam::123456789012:role/YourE2ETestRole"
+# Read from environment variables with defaults
+_route53ZoneId = file.read_env("ROUTE53_ZONE_ID") or "ZXXXXXXXXXXXXX"
+_iamRoleArn = file.read_env("IAM_ROLE_ARN") or "arn:aws:iam::123456789012:role/YourE2ETestRole"
 
 _xcnoe = platformrefawsv1alpha1.XCNOE {
     metadata = {
