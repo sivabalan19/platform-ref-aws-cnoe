@@ -2,8 +2,11 @@ import models.io.upbound.platformref.aws.v1alpha1 as platformrefawsv1alpha1
 import file
 
 # Read from environment variables with defaults
-_route53ZoneId = file.read_env("ROUTE53_ZONE_ID") or "ZXXXXXXXXXXXXX"
-_iamRoleArn = file.read_env("IAM_ROLE_ARN") or "arn:aws:iam::123456789012:role/YourE2ETestRole"
+_route53ZoneIdEnv = file.read_env("ROUTE53_ZONE_ID")
+_iamRoleArnEnv = file.read_env("IAM_ROLE_ARN")
+
+_route53ZoneId = _route53ZoneIdEnv if _route53ZoneIdEnv else "ZXXXXXXXXXXXXX"
+_iamRoleArn = _iamRoleArnEnv if _iamRoleArnEnv else "arn:aws:iam::123456789012:role/YourE2ETestRole"
 
 _xcnoe = platformrefawsv1alpha1.XCNOE {
     metadata = {
